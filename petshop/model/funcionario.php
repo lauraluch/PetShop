@@ -82,8 +82,8 @@
         public static function existeEmail($email){
             try{
                 $conexao = Conexao::getConexao();
-                $stmt = $conexao->prepare( // prepara uma declaração SQL para execução
-                    "SELECT COUNT(*) FROM pessoas WHERE email = ?" // notação posicional
+                $stmt = $conexao->prepare(
+                    "SELECT COUNT(*) FROM funcionario WHERE email = ?"
                 );
                 $stmt->execute([$email]);
 
