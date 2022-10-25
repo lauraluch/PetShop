@@ -59,10 +59,9 @@
             if(parametrosValidos($_POST, ["nome", "email"])){
                 $nome = $_POST["nome"];
                 $email = $_POST["email"];
-                $dataCadastro = date("d-m-Y");
 
                 if (!Funcionario::existeEmail($email)){
-                    if(Funcionario::cadastrar($nome, $email, $dataCadastro)){
+                    if(Funcionario::cadastrar($nome, $email)){
                         echo "<p>Funcionário <b>$nome</b> cadastrado com sucesso.</p>";
                     }else{
                         echo "<p>Erro ao cadastrar o funcionário <b>$nome</b>.</p>";
@@ -85,9 +84,8 @@
                 $nome = $_POST["nome"];
                 $raca = $_POST["raca"];
                 $telDono = $_POST["telDono"];
-                $dataCadastro = date("d-m-Y");
 
-                if(Animal::cadastrar($nome, $raca, $telDono, $dataCadastro))
+                if(Animal::cadastrar($nome, $raca, $telDono))
                     echo "<p>O animal <b>$nome</b> foi cadastrado com sucesso.</p>";
                 else
                     echo "<p>Erro ao cadastrar o animal <b>$nome</b>.</p>";
@@ -122,8 +120,10 @@
         <button>Cadastrar</button>
     </form>
 
-    <<br>
-    <h2>Tabela de Pessoas Cadastradas</h2>
+    <br><br>
+
+    <a href='listaFuncionarios.php'>Listar Funcionários</a>
+    <!--<h2>Tabela de Pessoas Cadastradas</h2>
     <table>
         <thead>
             <tr>
@@ -135,7 +135,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php
+            </?php
                 $listaPessoas = Pessoa::listar();
                 $listaCarros = Carro::listar();
 
