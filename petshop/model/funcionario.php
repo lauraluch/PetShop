@@ -2,17 +2,16 @@
     require_once __DIR__. "/../configs/BancoDados.php";
 
     class Funcionario{
-        public static function cadastrar($nome, $email, $dataCadastro){
+        public static function cadastrar($nome, $email){
             try{
                 $conexao = Conexao::getConexao();
                 $stmt = $conexao->prepare(
-                    "INSERT INTO funcionario(nome, email, dataCadastro) VALUES (:nome, :email, :dataCadastro)"
+                    "INSERT INTO funcionario(nome, email, dataCadastro) VALUES (:nome, :email, NOW())"
                 );
 
                 $stmt->execute([
                     "nome" => $nome,
-                    "email" => $email,
-                    "dataCadastro" => $dataCadastro
+                    "email" => $email
                 ]);
 
                 if($stmt->rowCount() > 0){
