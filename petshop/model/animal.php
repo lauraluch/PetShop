@@ -2,18 +2,17 @@
     require_once __DIR__. "/../configs/BancoDados.php";
 
     class Animal{
-        public static function cadastrar($nome, $raca, $telDono, $dataCadastro){
+        public static function cadastrar($nome, $raca, $telDono){
             try{
                 $conexao = Conexao::getConexao();
                 $stmt = $conexao->prepare(
-                    "INSERT INTO animal(nome, raca, telDono, dataCadastro) VALUES (:nome, :raca, :telDono, :dataCadastro)"
+                    "INSERT INTO animal(nome, raca, telDono, dataCadastro) VALUES (:nome, :raca, :telDono, NOW())"
                 );
 
                 $stmt->execute([
                     "nome" => $nome,
                     "raca" => $raca,
-                    "telDono" => $telDono,
-                    "dataCadastro" => $dataCadastro
+                    "telDono" => $telDono
                 ]);
 
                 if($stmt->rowCount() > 0){
