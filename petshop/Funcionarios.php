@@ -46,6 +46,8 @@
                 ?>
                 </tbody>
                 </table>
+                <br><br>
+                <a href='index.php'>Voltar ao index</a>
                 
                 
                 
