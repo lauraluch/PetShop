@@ -122,7 +122,7 @@
 
     <br><br>
 
-    <a href='listaFuncionarios.php'>Listar Funcionários</a>
+    <a href='Funcionarios.php'>Listar Funcionários</a>
     <!--<h2>Tabela de Pessoas Cadastradas</h2>
     <table>
         <thead>
