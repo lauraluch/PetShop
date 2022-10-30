@@ -24,13 +24,13 @@
                     
                 } else {
                     echo "<h1>Este funcionario não existe</h1>";
-                    echo "<a href='index.php'>Voltar ao index</a>";
+                    echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
                     die;
                 }
                 
             } else {
                 echo "<h1>Você deve dizer qual é o funcionario a ser deletado</h1>";
-                echo "<a href='index.php'>Voltar ao index</a>";
+                echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
                 die;
             }
         }
@@ -40,17 +40,17 @@
                 $resultado = Funcionario::remover($_POST["id"]);
                 if ($resultado) {
                     echo "<h1>Funcionario deletado com sucesso</h1>";
-                    echo "<a href='index.php'>Voltar ao index</a>";
+                    echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
                     die;
                 } else {
                     echo "<h1>Erro ao deletar o funcionario</h1>";
-                    echo "<a href='index.php'>Voltar ao index</a>";
+                    echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
                     die;
                 }
                 
             } else {
                 echo "<h1>Você deve dizer qual é a pessoa a ser excluida</h1>";
-                echo "<a href='index.php'>Voltar ao index</a>";
+                echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
                 die;
             }
         }
@@ -59,9 +59,10 @@
     <h1>Deletar as informações de <?= $funcionario["nome"] ?></h1>
     <form method="POST">
         <input type="hidden" name="id" value="<?= $funcionario["id"] ?>">
-        <br><br><br>
+        
         <button>Sim</button>
     </form>
+    <br>
     <a href='index.php'>Voltar ao index</a>
     
 
