@@ -23,13 +23,13 @@
                     
                 } else {
                     echo "<h1>Esta pessoa não existe</h1>";
-                    echo "<a href='index.php'>Voltar ao index</a>";
+                    echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
                     die;
                 }
                 
             } else {
                 echo "<h1>Você deve dizer qual é a pessoa a ser editada</h1>";
-                echo "<a href='index.php'>Voltar ao index</a>";
+                echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
                 die;
             }
         }
@@ -39,17 +39,17 @@
                 $resultado = Funcionario::editar($_POST["id"],$_POST["nome"], $_POST["email"]);
                 if ($resultado) {
                     echo "<h1>Funcionario editado com sucesso</h1>";
-                    echo "<a href='index.php'>Voltar ao index</a>";
+                    echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
                     die;
                 } else {
                     echo "<h1>Erro ao editar o funcionario</h1>";
-                    echo "<a href='index.php'>Voltar ao index</a>";
+                    echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
                     die;
                 }
                 
             } else {
                 echo "<h1>Você deve dizer qual é o funcionario a ser editado</h1>";
-                echo "<a href='index.php'>Voltar ao index</a>";
+                echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
                 die;
             }
         }
