@@ -42,6 +42,7 @@
         public static function remover($id){
             try{
                 $conexao = Conexao::getConexao();
+                Atende::remover($id);
                 $stmt = $conexao->prepare(
                     "DELETE FROM funcionario WHERE id = ?"
                 );
@@ -78,6 +79,7 @@
         
         }
 
+    
         public static function existeEmail($email){
             try{
                 $conexao = Conexao::getConexao();
@@ -95,6 +97,41 @@
                 exit;
             }
         
+        }
+
+        public static function getFuncById($id){
+            try{
+                $conexao = Conexao::getConexao();
+                $stmt = $conexao->prepare(
+                    "SELECT * FROM funcionario WHERE id = ?"
+                );
+                $stmt->execute([$id]);
+    
+                return $stmt->fetchAll()[0];
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        }
+
+        public static function editar($id, $nome, $email){
+            try{
+                $conexao = Conexao::getConexao();
+                $stmt = $conexao->prepare(
+                    "UPDATE funcionario SET nome = ?, email = ? WHERE id = ?"
+                );
+                $stmt->execute([$nome, $email, $id]);
+    
+                if($stmt->rowCount() > 0){
+                    return true;
+                } else {
+                    return false;
+                }
+    
+    
+            }
+            catch(Exception $e) {
+                return false;
+            }
         }
     }
 ?>
