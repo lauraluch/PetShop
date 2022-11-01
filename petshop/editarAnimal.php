@@ -56,7 +56,7 @@
             <input type="text" value="<?= $animal["nome"] ?>" name="nome" required>
             <p>Digite a raça: </p>
             <input type="text" value="<?= $animal["raca"] ?>" name="raca" required>
-            <p>Digite a senha: </p>
+            <p>Digite o telefone do dono: </p>
             <input type="text" value="<?= $animal["telDono"] ?>" name="telDono" required><br><br>
             <button>Save</button>
         </form>
