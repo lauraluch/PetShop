@@ -94,6 +94,24 @@
                 
             }
         }
+    
+        //Cadastro
+        if(isMetodo("POST")){
+            
+            //Cadastro de Atendimento
+            if(parametrosValidos($_POST, ["idFunc", "idAnimal"])){
+                $idFunc = $_POST["idFunc"];
+                $idAnimal = $_POST["idAnimal"];
+
+                if(Atende::cadastrar($idFunc, $idAnimal))
+                    echo "<p>O atendimento foi cadastrado com sucesso.</p>";
+                else
+                    echo "<p>Erro ao cadastrar o atendimento</p>";
+            }
+            else{
+                
+            }
+        }
     ?>
     <h1>Cadastro de Funcionário</h1>
     <form method="POST">
@@ -102,7 +120,7 @@
         <input type="text" name="nome" required>
         <p>Digite o e-mail</p>
         <input type="email" name="email" required>
-        <br><br><br>
+        <br><br>
         <button>Cadastrar</button>
     </form>
 
@@ -116,74 +134,48 @@
         <input type="text" name="raca" required>
         <p>Digite o telefone do Dono</p>
         <input type="text" name="telDono" required>
-        <br><br><br>
+        <br><br>
         <button>Cadastrar</button>
+    </form>
+    
+    <br>
+    <h1>Cadastre um atendimento</h1>
+    <form method="POST">
+        <p>Selecione o id do funcionario</p>
+        <select name="idFunc" required>
+            <option value="">------</option>
+            <?php
+            $lista = Funcionario::listar();
+            foreach ($lista as $func) {
+                $id = $func["id"];
+                $nome = $func["nome"];
+                echo "<option value='$id'>$nome</option>";
+            }
+            ?>
+        </select>
+        <p>Selecione o id do animal</p>
+        <select name="idAnimal" required>
+            <option value="">------</option>
+            <?php
+            $lista = Animal::listar();
+            foreach ($lista as $animal) {
+                $id = $animal["id"];
+                $nome = $animal["nome"];
+                echo "<option value='$id'>$nome</option>";
+            }
+
+            ?>
+        </select>
+        <br><br>
+        <button>Cadastrar</button>
+        <br><br>
     </form>
 
     <br><br>
 
     <a href='Funcionarios.php'>Listar Funcionários</a>
     <a href='animais.php'>Animais</a>
-    <!--<h2>Tabela de Pessoas Cadastradas</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Login</th>
-                <th>Senha</th>
-                <th>Operações</th>
-            </tr>
-        </thead>
-        <tbody>
-            </?php
-                $listaPessoas = Pessoa::listar();
-                $listaCarros = Carro::listar();
-
-                foreach($listaPessoas as $pessoa){
-                    echo "<tr>";
-                    echo "<td>" . $pessoa["id"] . "</td>";
-                    echo "<td>" . $pessoa["nome"] . "</td>";
-                    echo "<td>" . $pessoa["login"] . "</td>";
-                    echo "<td>" . $pessoa["senha"] . "</td>";
-                    echo "<td>
-                            <a href='editarPessoa.php?id=" . $pessoa["id"] . "'>Editar</a>  |  
-                            <a href='index.php?deletarPessoa=$id'>Deletar</a>
-                        </td>";
-                    // href='editarPessoa.php?id=$id&nome=tiago&senha=oi para passar varios parametros
-                    echo "</tr>";
-                }
-            ?>
-        </tbody>
-    </table>
-
-    <h2>Tabela de Carros Cadastrados</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Marca</th>
-                <th>Ano</th>
-                <th>Dono</th>
-            </tr>
-        </thead>
-        <tbody>
-            </?php
-                $listaCarros = Carro::listar();
-
-                foreach($listaCarros as $carro){
-                    echo "<tr>";
-                    echo "<td>" . $carro["id"] . "</td>";
-                    echo "<td>" . $carro["nome"] . "</td>";
-                    echo "<td>" . $carro["marca"] . "</td>";
-                    echo "<td>" . $carro["ano"] . "</td>";
-                    echo "<td>" . $carro["idPessoa"] . "</td>";
-                    echo "</tr>";
-                }
-            ?>
-        </tbody>
-    </table>-->
+    
     
 </body>
 </html>
