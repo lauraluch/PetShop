@@ -63,8 +63,8 @@
         public static function existeId($id){
             try{
                 $conexao = Conexao::getConexao();
-                $stmt = $conexao->prepare( // prepara uma declaração SQL para execução
-                    "SELECT COUNT(*) FROM animal WHERE id = ?" // notação posicional
+                $stmt = $conexao->prepare(
+                    "SELECT COUNT(*) FROM animal WHERE id = ?"
                 );
                 $stmt->execute([$id]);
 
@@ -77,6 +77,39 @@
                 exit;
             }
         
+        }
+
+        public static function getAnimalById($id){
+            try{
+                $conexao = Conexao::getConexao();
+                $stmt = $conexao->prepare("SELECT * FROM animal where id = ?");
+                $stmt->execute([$id]);
+    
+                return $stmt->fetchAll()[0];
+            }
+            catch(Exception $e){
+                echo $e->getMessage();
+                exit;
+            }
+        }
+
+        public static function editar($id, $nome, $raca, $telDono){
+            try{
+                $conexao = Conexao::getConexao();
+                $stmt = $conexao->prepare("UPDATE animal SET nome = ?, raca = ?, telDono = ? where id = ?");
+                $stmt->execute([$nome, $raca, $telDono, $id]);
+    
+                if($stmt->rowCount() > 0){
+                    return true;
+                }
+                else{
+                    return false;
+                }  
+            }
+            catch(Exception $e){
+                echo $e->getMessage();
+                exit;
+            }
         }
     }
 ?>
