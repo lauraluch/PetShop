@@ -123,6 +123,7 @@
     <br><br>
 
     <a href='Funcionarios.php'>Listar Funcionários</a>
+    <a href='animais.php'>Animais</a>
     <!--<h2>Tabela de Pessoas Cadastradas</h2>
     <table>
         <thead>
