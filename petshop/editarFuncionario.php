@@ -61,7 +61,6 @@
         <input type="text" name="nome" value="<?= $func["nome"] ?>" required>
         <p>Digite o email</p>
         <input type="email" name="email" value="<?= $func["email"] ?>" required>
-        <p>Digite a senha</p>
         <input type="hidden" name="id" value="<?= $func["id"] ?>">
     
         <br><br><br>
