@@ -64,10 +64,5 @@
     </form>
     <br>
     <a href='index.php'>Voltar ao index</a>
-    
-
-
-
-
 </body>
 </html>
