@@ -17,7 +17,7 @@
                 <h3>Listar animais cuidados por um determinado funcionário</h3>
         
                 <form method="POST">
-                    <p>Selecione o id do funcionario</p>
+                    <p>Selecione o funcionario</p>
                     <select name="idFunc" required>
                         <option value="">------</option>
                         <?php
@@ -38,7 +38,7 @@
             
                 <h3>Listar funcionários que cuidam de determinado animal</h3>
                 <form method="POST">
-                    <p>Selecione o id do animal</p>
+                    <p>Selecione o animal</p>
                     <select name="idAnimal" required>
                         <option value="">------</option>
                         <?php
