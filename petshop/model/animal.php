@@ -1,5 +1,6 @@
 <?php
     require_once __DIR__. "/../configs/BancoDados.php";
+    require_once "model/atende.php";
 
     class Animal{
         public static function cadastrar($nome, $raca, $telDono){
@@ -25,24 +26,10 @@
             }
         }
 
-        public static function listar(){
-            try{
-                $conexao = Conexao::getConexao();
-                $stmt = $conexao->prepare(
-                    "SELECT * FROM animal ORDER BY id"
-                );
-                $stmt->execute();
-
-                return $stmt->fetchAll();
-            }catch (Exception $e){
-                echo $e->getMessage();
-                exit;
-            }
-        }
-
         public static function remover($id){
             try{
                 $conexao = Conexao::getConexao();
+                Atende::removerPorIdAnimal($id);
                 $stmt = $conexao->prepare(
                     "DELETE FROM animal WHERE id = ?"
                 );
@@ -59,6 +46,22 @@
                 exit;
             }
         }
+
+        public static function listar(){
+            try{
+                $conexao = Conexao::getConexao();
+                $stmt = $conexao->prepare(
+                    "SELECT * FROM animal ORDER BY id"
+                );
+                $stmt->execute();
+
+                return $stmt->fetchAll();
+            }catch (Exception $e){
+                echo $e->getMessage();
+                exit;
+            }
+        }
+
 
         public static function existeId($id){
             try{
@@ -107,6 +110,51 @@
                 }  
             }
             catch(Exception $e){
+                echo $e->getMessage();
+                exit;
+            }
+        }
+
+        public static function listarRaca(){
+            try{
+                $conexao = Conexao::getConexao();
+                $stmt = $conexao->prepare(
+                    "SELECT DISTINCT raca FROM animal ORDER BY id"
+                );
+                $stmt->execute();
+
+                return $stmt->fetchAll();
+            }catch (Exception $e){
+                echo $e->getMessage();
+                exit;
+            }
+        }
+
+        public static function listarPorTelefone($telefone){
+            try{
+                $conexao = Conexao::getConexao();
+                $stmt = $conexao->prepare(
+                    "SELECT * FROM animal WHERE telDono = ? ORDER BY id"
+                );
+                $stmt->execute([$telefone]);
+
+                return $stmt->fetchAll();
+            }catch (Exception $e){
+                echo $e->getMessage();
+                exit;
+            }
+        }
+
+        public static function listarTelefonesDonos(){
+            try{
+                $conexao = Conexao::getConexao();
+                $stmt = $conexao->prepare(
+                    "SELECT DISTINCT telDono FROM animal ORDER BY id"
+                );
+                $stmt->execute();
+
+                return $stmt->fetchAll();
+            }catch (Exception $e){
                 echo $e->getMessage();
                 exit;
             }
