@@ -53,7 +53,7 @@
         }
 
     ?>
-    <h1>Editando as informações de <?= $func["nome"] ?></h1>
+    <h2>Editando as informações de <?= $func["nome"] ?></h2>
     <form method="POST">
         <p>Digite o nome</p>
         <input type="text" name="nome" value="<?= $func["nome"] ?>" required>
