@@ -1,0 +1,117 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    background-color: rgb(245, 245, 245);
+}
+
+header {
+    color: rgb(61, 155, 108);
+    margin-left: 50px;
+}
+
+.list {
+    font-size: 15px;
+    margin-left: 10px;
+    width: 15%;
+    font-weight: bold;
+    border-style: none;
+    border-radius: 4px;
+    border-width: 2px;
+    padding: 12px 20px;
+    color:rgb(255, 255, 255);
+    background-color: rgb(255, 155, 72);
+}
+
+.list:hover {
+    background-color: rgb(255, 136, 38);
+}
+
+select {
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(190, 190, 190);
+    border-radius: 3px;
+    
+    width: 40%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    resize:none;
+
+    color:rgb(151, 151, 151);
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.retorno {
+    margin-bottom: auto;
+    border-style: none;
+    border-radius: 4px;
+    border-color: aqua;
+    border-width: 2px;
+    padding: 15px;
+    padding-left: 18px;
+    padding-right: 18px;
+    color:rgb(255, 255, 255);
+    background-color: rgb(255, 155, 72);
+}
+
+.retorno:hover {
+    background-color: rgb(255, 136, 38);
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+table {
+    width: 60%;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    border-style: solid;
+    border-color: #b6b6b6;
+    font-style: none;
+}
+
+th {
+    height: 30px;
+    font-size: 20px;
+}
+
+tbody {
+    height: 30px;
+    font-size: 20px;    
+}
+
+th, td {
+    padding: 13px;
+    text-align: center;
+}
+    
+th {
+    background-color: #f2f2f2;
+}
+    
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.grid-container {
+    display: grid;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 20px;
+    justify-content: space-evenly;
+    grid-template-columns: auto auto;
+    grid-template-rows: 400px;
+}
+
+.grid-item {
+    margin-left: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
