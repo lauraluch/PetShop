@@ -4,23 +4,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="listStyle.css">
         <title>Animais</title>
-        <style>
-            table, th, td {
-            border-collapse: collapse;
-            border: 1px solid;
-            }
-            th, td {
-                padding: 13px;
-                text-align: center;
-            }
-            th {background-color: #f2f2f2;}
-            tr:nth-child(even) {background-color: #f2f2f2;}
-        </style>
     </head>
     <body>
-        <a href="index.php">Página Principal</a>
-
         <?php
             require_once "model/animal.php";
             require_once "model/funcionario.php";
@@ -45,14 +32,15 @@
                 }
             }
         ?>
-
-        <h2>Tabela de animais:</h2><br>
+        <header>
+            <h2>Atendimentos</h2>
+        </header>
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Id do fucionario</th>
-                    <th>Nome do funcionario</th>
+                    <th>ID do fucionário</th>
+                    <th>Nome do funcionário</th>
                     <th>Id do animal</th>
                     <th>Nome do animal</th>
                     <th>Data do atendimento</th>
@@ -80,5 +68,7 @@
                 ?>
             </tbody>
         </table>
+        <br><br>
+        <a id="retorno" href='index.php'>Voltar à página principal</a>
     </body>
 </html>
