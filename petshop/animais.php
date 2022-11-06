@@ -4,22 +4,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="listStyle.css"/>
         <title>Animais</title>
-        <style>
-            table, th, td {
-            border-collapse: collapse;
-            border: 1px solid;
-            }
-            th, td {
-                padding: 13px;
-                text-align: center;
-            }
-            th {background-color: #f2f2f2;}
-            tr:nth-child(even) {background-color: #f2f2f2;}
-        </style>
     </head>
     <body>
-        <a href="index.php">Página Principal</a>
 
         <?php
             require_once "model/animal.php";
@@ -44,7 +32,9 @@
             }
         ?>
 
-        <h2>Tabela de animais:</h2><br>
+        <header>
+            <h2>Animais Cadastrados</h2><br>
+        </header>
         <table>
             <thead>
                 <tr>
@@ -70,7 +60,7 @@
                         echo "<td>" . $animal["dataCadastro"] . "</td>";
                         $id = $animal["id"];
                         echo "<td>
-                            <a href='editarAnimal.php?id=$id'>Editar</a>
+                            <a href='editarAnimal.php?id=$id'>Editar</a> |
                             <a href='animais.php?deletarAnimal=$id'>Deletar</a>
                             </td>";
                         echo "</tr>";
@@ -78,5 +68,7 @@
                 ?>
             </tbody>
         </table>
+        <br><br>
+        <a id="retorno" href='index.php'>Voltar à página principal</a>
     </body>
 </html>
