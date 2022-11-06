@@ -18,9 +18,6 @@
                 $id = $_GET["id"];
                 if (Funcionario::existeId($id)) {
                     $func = Funcionario::getFuncById($id);
-
-
-                    
                 } else {
                     echo "<h1>Esta pessoa não existe</h1>";
                     echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
@@ -42,7 +39,7 @@
                     echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
                     die;
                 } else {
-                    echo "<h1>Erro ao editar o funcionario</h1>";
+                    echo "<h2>Nenhuma alteração foi feita.</h2>";
                     echo "<a href='Funcionarios.php'>Voltar a funcionarios</a>";
                     die;
                 }
@@ -67,9 +64,5 @@
         <button>Editar</button>
 
     </form>
-
-
-
-
 </body>
 </html>
