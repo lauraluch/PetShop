@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="edit.css">
         <title>Editar Animal</title>
     </head>
     <body>
@@ -58,7 +59,7 @@
             <input type="text" value="<?= $animal["raca"] ?>" name="raca" required>
             <p>Digite o telefone do dono: </p>
             <input type="text" value="<?= $animal["telDono"] ?>" name="telDono" required><br><br>
-            <button>Save</button>
+            <button>Salvar</button>
         </form>
     </body>
 </html>
