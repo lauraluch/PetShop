@@ -3,24 +3,28 @@
 
     class Atende{
         public static function cadastrar($idFuncionario, $idAnimal){
-            try{
-                $conexao = Conexao::getConexao();
-                $stmt = $conexao->prepare(
-                    "INSERT INTO atende(idFuncionario, idAnimal, data) VALUES (:idFuncionario, :idAnimal, NOW())"
-                );
-
-                $stmt->execute([
-                    "idFuncionario" => $idFuncionario,
-                    "idAnimal" => $idAnimal
-                ]);
-
-                if($stmt->rowCount() > 0){
-                    return true;
+            if(Funcionario::existeId($idFuncionario) and Animal::existeId($idAnimal)){
+                try{
+                   $conexao = Conexao::getConexao();
+                    $stmt = $conexao->prepare(
+                        "INSERT INTO atende(idFuncionario, idAnimal, data) VALUES (:idFuncionario, :idAnimal, NOW())"
+                    );
+    
+                    $stmt->execute([
+                        "idFuncionario" => $idFuncionario,
+                        "idAnimal" => $idAnimal
+                    ]);
+    
+                    if($stmt->rowCount() > 0){
+                        return true;
+                    }
+                    return false;
+                }catch(Exception $e){
+                    echo $e->getMessage();
+                    exit;
                 }
-                return false;
-            }catch(Exception $e){
-                echo $e->getMessage();
-                exit;
+            } else {
+                echo "O funcionário ou animal selecionados não existem";
             }
         }
 
@@ -29,6 +33,46 @@
                 $conexao = Conexao::getConexao();
                 $stmt = $conexao->prepare(
                     "DELETE FROM atende WHERE id = ?"
+                );
+
+                $stmt->execute([$id]);
+
+                if($stmt->rowCount() > 0){
+                    return true;
+                }
+                return false;
+                
+            }catch(Exception $e){
+                echo $e->getMessage();
+                exit;
+            }
+        }
+
+        public static function removerPorIdAnimal($id){
+            try{
+                $conexao = Conexao::getConexao();
+                $stmt = $conexao->prepare(
+                    "DELETE FROM atende WHERE idAnimal = ?"
+                );
+
+                $stmt->execute([$id]);
+
+                if($stmt->rowCount() > 0){
+                    return true;
+                }
+                return false;
+                
+            }catch(Exception $e){
+                echo $e->getMessage();
+                exit;
+            }
+        }
+
+        public static function removerPorIdFuncionario($id){
+            try{
+                $conexao = Conexao::getConexao();
+                $stmt = $conexao->prepare(
+                    "DELETE FROM atende WHERE idFuncionario = ?"
                 );
 
                 $stmt->execute([$id]);
